@@ -1,0 +1,40 @@
+server:
+  port: 8892
+  servlet:
+    session:
+      # 设置session的过期时间，最小是1分钟，小于1分钟，当作1分钟处理
+      timeout: 120s
+      cookie:
+        http-only: true
+        secure: false
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/devicedb?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: Root$123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  freemarker:
+    cache: false # 缓存配置 开发阶段应该配置为false 因为经常会改
+    suffix: .html # 模版后缀名 默认为ftl
+    charset: UTF-8 # 文件编码
+    template-loader-path: classpath:/templates/
+  security:
+    loginType: JSON
+
+
+
+logging:
+  config: classpath:logback-spring.xml
+    #level:
+    # 跟日志记录器是 info级别
+    #    root: info
+    #com.tusdao.mapper.base: DEBUG
+  #io.swagger.models.parameters.AbstractSerializableParameter: error
+
+mybatis:
+  configuration:
+    mapUnderscoreToCamelCase: true
