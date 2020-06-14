@@ -5,6 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 /**
+ *  字母哥
+ *    https://gitee.com/hanxt/dongbb
+ *
  *  基于字母哥课堂的spring-security,把每个章节的功能独立出来
  *  https://github.com/Nagisaki/my-spring-security-demo
  *
