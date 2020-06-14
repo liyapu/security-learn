@@ -22,6 +22,7 @@ import java.util.Objects;
 
 /**
  * 自定义验证码 过滤器
+ * 需要在 用户名和密码 UsernamePasswordAuthenticationFilter 校验之前执行，
  */
 @Component
 public class CaptchaCodeFilter extends OncePerRequestFilter {

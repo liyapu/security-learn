@@ -41,8 +41,7 @@ public class CaptchaController {
         //验证码文字
         String capText = captchaProducer.createText();
         //将验证码存到session
-        session.setAttribute("captcha_key",
-                new CaptchaImageVO(capText,2 * 60));
+        session.setAttribute("captcha_key", new CaptchaImageVO(capText,2 * 60));
 
         //将图片返回给前端
         try(ServletOutputStream out = response.getOutputStream()){

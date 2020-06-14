@@ -42,7 +42,7 @@ public class SmsController {
         //生成四位随机号
         SmsCode smsCode = new SmsCode(RandomStringUtils.randomNumeric(4),60,mobile);
         //TODO 调用短信服务提供商的接口发送短信
-        log.info(smsCode.getCode()  + "+>" + mobile);
+        log.info(smsCode.getCode()  + "+>>>>>>>>>>>>>>>" + mobile);
         session.setAttribute("sms_key",smsCode);
         return AjaxResponse.success("短信验证码已经发送");
     }

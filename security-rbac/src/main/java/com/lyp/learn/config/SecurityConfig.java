@@ -65,8 +65,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .tokenValiditySeconds(2 * 24 * 60 * 60) // 2天
                 .and()
                 .csrf().disable() //禁用跨站csrf攻击防御，后面的章节会专门讲解
-//                .addFilterBefore(captchaCodeFilter, UsernamePasswordAuthenticationFilter.class) //放到用户名密码登录过滤器之前执行
-                .addFilterBefore(smsCodeValidateFilter, UsernamePasswordAuthenticationFilter.class) //放到用户名密码登录过滤器之前执行
+                  // 图片验证码 和 短信验证码 只能配置一个
+                .addFilterBefore(captchaCodeFilter, UsernamePasswordAuthenticationFilter.class) //放到用户名密码登录过滤器之前执行
+//                .addFilterBefore(smsCodeValidateFilter, UsernamePasswordAuthenticationFilter.class) //放到用户名密码登录过滤器之前执行
                 .formLogin() //开始登陆配置
                 .loginPage("/login.html")//用户未登录时，访问任何资源都转跳到该路径，即登录页面
                 .loginProcessingUrl("/login")//登录表单form中action的地址，也就是处理认证请求的路径
