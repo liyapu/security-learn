@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <script src="https://cdn.staticfile.org/jquery/1.12.3/jquery.min.js"></script>
+</head>
+<body>
+<h1>模拟跨域请求</h1>
+<h2>此页面通过 idea 右侧的浏览器直接打开，这样和后端使用的端口不是同一个，进而产生 跨域</h2>
+
+
+<script>
+    window.onload = function () {
+        var headers = {};
+        // headers['JWTHeaderName'] = "这里替换为新生成的 jwt 令牌";
+        // 这里 jwt令牌，需要是 项目启动之后，重新生成的
+         headers['JWTHeaderName'] = "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE1OTIxMjA5MzAsInN1YiI6ImFkbWluIiwiY3JlYXRlZCI6MTU5MjExNzMzMDQ0Mn0.jAug_SSk38_N0qvQIwFwFAZXk_hEmaX19ZVInwKXshT5-_aX5qkAvSnltaWrk5ZSZFJOLV0YFuTi-DVgnKngYA";
+         var url = "http://localhost:8893/hello";
+         $.ajax({
+            type: "POST",
+            url: url,
+             headers:headers,
+            data: {
+                "pword": "aa",
+                "remember-me-new": "bb"
+            },
+            success: function (data) {
+                alert("跨域请求配置成功")
+
+            },
+            error: function (e) {
+                alert("跨域请求配置失败")
+            }
+        });
+    };
+
+</script>
+
+</body>
+</html>

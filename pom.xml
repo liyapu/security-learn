@@ -13,6 +13,7 @@
         <module>basic-server</module>
         <module>form-login</module>
         <module>security-rbac</module>
+        <module>security-jwt</module>
     </modules>
 
     <parent>
